@@ -20,6 +20,8 @@ func _process(delta):
 		if health == 0 and alive:
 			anim.play("death")
 
+
+
 func BossTakingDamages(dmg):
 	if health > 0:
 		health = health - dmg
