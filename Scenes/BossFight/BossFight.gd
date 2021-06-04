@@ -26,7 +26,10 @@ func _ready():
 	instanciateBoss()
 	
 
-
+func _process(delta):
+	if bossInstance.alive == false:
+		$Victoire.visible = true
+		$Scene/AnimatedSprite.play("fiesta")
 
 func instanciateBoss():
 	healthInstance = HealthBar.instance()
@@ -62,7 +65,7 @@ func loadRightScene(num): # pas utilisé pour le moment
 
 func _on_Button_pressed():
 	#ScriptBoss.BossTakingDamages(25)
-	bossInstance.BossTakingDamages(25)
+	bossInstance.BossTakingDamages(10)
 	healthInstance.set_bar_value(bossInstance.health)
 
 
