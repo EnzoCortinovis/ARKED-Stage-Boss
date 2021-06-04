@@ -6,3 +6,14 @@
 script = ExtResource( 1 )
 
 [node name="Scene" type="Node2D" parent="."]
+
+[node name="Button" type="Button" parent="Scene"]
+margin_left = 419.759
+margin_top = 528.388
+margin_right = 608.759
+margin_bottom = 587.388
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="Scene/Button" to="." method="_on_Button_pressed"]

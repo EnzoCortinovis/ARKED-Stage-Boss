@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-var health
+var health = 100
 var alive = true
 var notDoingAnything = true 
 onready var anim = $AnimatedSprite
@@ -8,7 +8,7 @@ onready var anim = $AnimatedSprite
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	health = 100
+	pass
 
 
 

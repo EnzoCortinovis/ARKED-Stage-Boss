@@ -1,5 +1,6 @@
 extends Node2D
 
+var ScriptBoss = load("res://Scenes/LesBoss/Boss.gd").new()
 var HealthBar = preload("res://Scenes/HealthBar/ProgressBar.tscn")
 
 var rng = RandomNumberGenerator.new()
@@ -15,7 +16,7 @@ onready var Goblin = preload("res://Scenes/LesBoss/Goblin.tscn")
 onready var Orc = preload("res://Scenes/LesBoss/Orc.tscn")
 onready var Ogre = preload("res://Scenes/LesBoss/Ogre.tscn")
 
-
+var i = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -31,8 +32,8 @@ func instanciateBoss():
 	$Scene.add_child(healthInstance)
 	var bossTab = [Golem_1,Golem_2,Golem_3,Minotaur_1,Minotaur_2,Minotaur_3,Goblin,Orc,Ogre]
 	var bossInstance = bossTab[random_num-1].instance()
-	
 	$Scene.add_child(bossInstance)
+	var health = bossInstance.health
 	
 func loadRightScene(num): # pas utilisé pour le moment
 	match num:
@@ -55,6 +56,9 @@ func loadRightScene(num): # pas utilisé pour le moment
 		9:
 			var Ogre = load("res://Scenes/LesBoss/Ogre.tscn")
 	rpc("instanciateBoss")
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+	
+
+
+func _on_Button_pressed():
+	ScriptBoss.BossTakingDamages(25)
+	
