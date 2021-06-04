@@ -1,0 +1,13 @@
+[remap]
+
+importer="image"
+type="Image"
+path="res://.import/Bar.png-a736807ddec09880a2d99c31902c457a.image"
+
+[deps]
+
+source_file="res://Assets/HealthBar/Bar.png"
+dest_files=[ "res://.import/Bar.png-a736807ddec09880a2d99c31902c457a.image" ]
+
+[params]
+

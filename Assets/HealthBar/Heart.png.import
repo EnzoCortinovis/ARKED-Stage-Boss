@@ -1,0 +1,13 @@
+[remap]
+
+importer="image"
+type="Image"
+path="res://.import/Heart.png-eb92a560bb163544f49699c3ee678808.image"
+
+[deps]
+
+source_file="res://Assets/HealthBar/Heart.png"
+dest_files=[ "res://.import/Heart.png-eb92a560bb163544f49699c3ee678808.image" ]
+
+[params]
+

@@ -64,3 +64,7 @@ func _on_Button_pressed():
 	#ScriptBoss.BossTakingDamages(25)
 	bossInstance.BossTakingDamages(25)
 	healthInstance.set_bar_value(bossInstance.health)
+
+
+func _on_Button2_pressed():
+	bossInstance.BossAttack()
