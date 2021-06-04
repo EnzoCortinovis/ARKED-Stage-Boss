@@ -1,6 +1,5 @@
 extends Node2D
 
-var ScriptBoss = load("res://Scenes/LesBoss/Boss.gd").new()
 var HealthBar = preload("res://Scenes/HealthBar/ProgressBar.tscn")
 
 var rng = RandomNumberGenerator.new()
@@ -15,8 +14,10 @@ onready var Minotaur_3 = preload("res://Scenes/LesBoss/Minotaur_3.tscn")
 onready var Goblin = preload("res://Scenes/LesBoss/Goblin.tscn")
 onready var Orc = preload("res://Scenes/LesBoss/Orc.tscn")
 onready var Ogre = preload("res://Scenes/LesBoss/Ogre.tscn")
+var bossTab = []
+var bossInstance
+var healthInstance
 
-var i = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -28,10 +29,10 @@ func _ready():
 
 
 func instanciateBoss():
-	var healthInstance = HealthBar.instance()
+	healthInstance = HealthBar.instance()
 	$Scene.add_child(healthInstance)
-	var bossTab = [Golem_1,Golem_2,Golem_3,Minotaur_1,Minotaur_2,Minotaur_3,Goblin,Orc,Ogre]
-	var bossInstance = bossTab[random_num-1].instance()
+	bossTab = [Golem_1,Golem_2,Golem_3,Minotaur_1,Minotaur_2,Minotaur_3,Goblin,Orc,Ogre]
+	bossInstance = bossTab[random_num-1].instance()
 	$Scene.add_child(bossInstance)
 	var health = bossInstance.health
 	
@@ -60,5 +61,6 @@ func loadRightScene(num): # pas utilisé pour le moment
 
 
 func _on_Button_pressed():
-	ScriptBoss.BossTakingDamages(25)
-	
+	#ScriptBoss.BossTakingDamages(25)
+	bossInstance.BossTakingDamages(25)
+	healthInstance.set_bar_value(bossInstance.health)
